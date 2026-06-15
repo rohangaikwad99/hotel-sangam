@@ -4,6 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Hotel Sangam</title>
@@ -11,6 +12,7 @@
     <!-- GOOGLE FONT -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet">
@@ -21,6 +23,7 @@
 
 </head>
 
+
 <body>
 
     <!-- HEADER -->
@@ -28,7 +31,9 @@
     <header>
 
         <div class="logo">
+
             हॉटेल संगम
+
         </div>
 
         <nav>
@@ -36,8 +41,11 @@
             <ul>
 
                 <li><a href="#">HOME</a></li>
+
                 <li><a href="#">ABOUT</a></li>
-                <li><a href="#">MENU</a></li>
+
+                <li><a href="menu.html">MENU</a></li>
+
                 <li><a href="#">CONTACT</a></li>
 
             </ul>
@@ -50,7 +58,17 @@
 
     <section class="hero">
 
-        <!-- LEFT -->
+        <!-- IMAGE SLIDER -->
+
+        <div class="slider">
+
+            <img src="images/mainimg.png" class="slide active">
+
+            <img src="images/vegthali.png" class="slide">
+
+        </div>
+
+        <!-- TEXT -->
 
         <div class="left">
 
@@ -81,18 +99,33 @@
 
         </div>
 
-        <!-- RIGHT -->
-
-        <div class="right">
-
-            <img src="images/mainimg.png" class="hero-img">
-
-        </div>
-
     </section>
 
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        let slides = document.querySelectorAll('.slide');
+
+        let index = 0;
+
+        setInterval(() => {
+
+            slides[index].classList.remove('active');
+
+            index++;
+
+            if(index >= slides.length){
+
+                index = 0;
+            }
+
+            slides[index].classList.add('active');
+
+        }, 4000);
+
+    </script>
+
 </body>
 
-</html>
-</body>
 </html>
