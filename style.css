@@ -1,3 +1,6 @@
+/* ==========================================
+   १. ग्लोबल रिसेट आणि बेस स्टाईल्स (RESET & BASE)
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +16,7 @@ body {
     animation: pageLoad 1.5s ease;
 }
 
-/* PAGE LOAD */
+/* पेज लोड होतानाचा स्मूथ इफेक्ट */
 @keyframes pageLoad {
     from {
         opacity: 0;
@@ -25,7 +28,9 @@ body {
     }
 }
 
-/* HEADER */
+/* ==========================================
+   २. हेडर आणि नेव्हिगेशन बार (HEADER & NAV)
+   ========================================== */
 header {
     width: 100%;
     padding: 25px 8%;
@@ -34,7 +39,6 @@ header {
     align-items: center;
 }
 
-/* LOGO */
 .logo {
     font-size: 42px;
     color: #ffc107;
@@ -42,7 +46,6 @@ header {
     font-weight: bold;
 }
 
-/* NAVBAR */
 nav ul {
     display: flex;
     gap: 40px;
@@ -60,7 +63,37 @@ nav ul li a:hover {
     color: #ffc107;
 }
 
-/* HERO */
+/* ==========================================
+   ३. स्लोगन सेक्शन (SLOGAN IMAGE SECTION)
+   ========================================== */
+.slogan-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 8%;
+    margin-top: 10px;
+    margin-bottom: -10px; /* स्लायडर आणि स्लोगनमधील मोकळी जागा मॅनेज करण्यासाठी */
+    animation: fadeIn 1.5s ease;
+}
+
+/* डेस्कटॉपवर स्लोगनचा आकार */
+.slogan-section img {
+    width: 100%;
+    max-width: 450px; 
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 4px 10px rgba(255, 193, 7, 0.2)); /* हलका गोल्डन ग्लो */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   ४. हिरो आणि इमेज स्लायडर (HERO & SLIDER)
+   ========================================== */
 .hero {
     width: 100%;
     min-height: 90vh;
@@ -69,14 +102,13 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 30px 8%;
+    padding: 20px 8% 30px 8%;
 }
 
-/* SLIDER */
 .slider {
     position: relative;
     width: 100%;
-    max-width: 500px; /* डेस्कटॉपवर इमेज खूप मोठी दिसू नये म्हणून कमी केले */
+    max-width: 500px; /* डेस्कटॉपवर थाळी खूप मोठी दिसू नये म्हणून */
     height: 400px;
     margin-bottom: 40px;
     display: flex;
@@ -84,38 +116,40 @@ nav ul li a:hover {
     align-items: center;
 }
 
-/* SLIDE IMAGE */
+/* स्लाईड इमेजेस */
 .slide {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* इमेज स्ट्रेच होणार नाही */
+    object-fit: contain;
     opacity: 0;
-    visibility: hidden; /* मोबाईलवर एकाच वेळी दोन्ही इमेजेस दिसणार नाहीत */
+    visibility: hidden; /* मोबाईलवर बॅकग्राउंडला ओव्हरलॅप होऊ नये म्हणून */
     transition: opacity 1s ease-in-out, visibility 1s;
 }
 
-/* ACTIVE IMAGE */
+/* अ‍ॅक्टिव्ह असणारी इमेज */
 .slide.active {
     opacity: 1;
     visibility: visible;
     animation: floatImage 4s ease-in-out infinite;
 }
 
-/* FLOAT EFFECT */
+/* ३D फ्लोटिंग इफेक्ट */
 @keyframes floatImage {
     0% {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-10px); /* फ्लोटिंग इफेक्ट थोडा कमी केला जेणेकरून जर्क बसणार नाही */
+        transform: translateY(-12px);
     }
     100% {
         transform: translateY(0px);
     }
 }
 
-/* TEXT */
+/* ==========================================
+   ५. मजकूर आणि बटने (TEXT & BUTTON)
+   ========================================== */
 .left {
     animation: textUp 1.5s ease;
 }
@@ -136,7 +170,6 @@ nav ul li a:hover {
     line-height: 32px;
 }
 
-/* BUTTON */
 .left button {
     margin-top: 40px;
     padding: 18px 40px;
@@ -155,7 +188,6 @@ nav ul li a:hover {
     background: #ffca2c;
 }
 
-/* TEXT ANIMATION */
 @keyframes textUp {
     from {
         opacity: 0;
@@ -167,7 +199,9 @@ nav ul li a:hover {
     }
 }
 
-/* TABLET */
+/* ==========================================
+   ६. टॅबलेट स्क्रीन रिस्पॉन्सिव्हनेस (TABLET - 992px)
+   ========================================== */
 @media(max-width: 992px) {
     header {
         flex-direction: column;
@@ -191,7 +225,9 @@ nav ul li a:hover {
     }
 }
 
-/* MOBILE (बदललेले मुख्य सेक्शन) */
+/* ==========================================
+   ७. मोबाईल स्क्रीन रिस्पॉन्सिव्हनेस (MOBILE - 768px)
+   ========================================== */
 @media(max-width: 768px) {
     .logo {
         font-size: 30px;
@@ -205,17 +241,52 @@ nav ul li a:hover {
         font-size: 14px;
     }
 
+    /* मोबाईलवर स्लोगनचा आकार लहान आणि सुटसुटीत */
+    /* ==========================================
+   ३. स्लोगन सेक्शन (SLOGAN IMAGE SECTION)
+   ========================================== */
+.slogan-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 8%;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    animation: fadeIn 1.5s ease;
+}
+
+/* डेस्कटॉपवर स्लोगनचा आकार आणि बॅकग्राउंड मॅजिक */
+/* डेस्कटॉपवर स्लोगनचा आकार आणि बॅकग्राउंड पूर्णपणे काढणे */
+.slogan-section img {
+    width: 100%;
+    max-width: 450px; 
+    height: auto;
+    object-fit: contain;
+    
+    /* १. काळा रंग गायब करण्यासाठी */
+    mix-blend-mode: screen; 
+    
+    /* २. बॅकग्राउंडमधील फिकट काळा रंग पूर्ण गायब करण्यासाठी फिल्टर */
+    filter: contrast(2) brightness(1.1) saturate(1.2);
+}
+
+    /* मोबाईलवर स्लायडर आणि इमेजेस परफेक्ट सेट */
+    .hero {
+        padding-top: 10px;
+    }
+
     .slider {
-        width: 90%;          /* मोबाईल स्क्रीननुसार विड्थ */
-        max-width: 320px;    /* इमेज जास्त मोठी होणार नाही */
-        height: 250px;       /* हाईट कमी केली जेणेकरून स्क्रोलिंग सोपे होईल */
-        margin: 0 auto 20px auto; /* सेंटर करण्यासाठी */
+        width: 90%;
+        max-width: 320px;
+        height: 250px; /* हाईट कंट्रोल केल्यामुळे स्क्रोलिंग सोपे होईल */
+        margin: 0 auto 20px auto;
     }
 
     .slide {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* इमेज क्रॉप न होता पूर्ण बसेल */
+        object-fit: contain;
     }
 
     .left h1 {
@@ -227,6 +298,7 @@ nav ul li a:hover {
         font-size: 15px;
         line-height: 26px;
         padding: 0 10px;
+        margin-top: 20px;
     }
 
     .left button {
