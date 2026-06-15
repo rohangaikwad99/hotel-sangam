@@ -1,302 +1,242 @@
-/* ==========================================
-   १. ग्लोबल रिसेट आणि बेस स्टाईल्स (RESET & BASE)
-   ========================================== */
+/* ==========================================================================
+   १. जनरल आणि रिसेट सेटिंग्स (GENERAL & RESET)
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif; /* इंग्लिश टेक्स्टसाठी */
 }
 
 body {
-    background: #0d0d0d;
-    min-height: 100vh;
-    color: white;
+    background-color: #111111; /* हॉटेल थीमनुसार रिच डार्क बॅकराउंड */
+    color: #ffffff;
     overflow-x: hidden;
-    animation: pageLoad 1.5s ease;
 }
 
-/* पेज लोड होतानाचा स्मूथ इफेक्ट */
-@keyframes pageLoad {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ==========================================
-   २. हेडर आणि नेव्हिगेशन बार (HEADER & NAV)
-   ========================================== */
+/* ==========================================================================
+   २. हेडर आणि नेव्हिगेशन (HEADER & NAVIGATION)
+   ========================================================================== */
 header {
-    width: 100%;
-    padding: 25px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px 8%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #ffc107; /* सोनेरी बॉर्डर */
 }
 
 .logo {
-    font-size: 42px;
-    color: #ffc107;
     font-family: "Tiro Devanagari Marathi", serif;
+    font-size: 28px;
     font-weight: bold;
+    color: #ffc107;
+    text-shadow: 0px 0px 10px rgba(255, 193, 7, 0.3);
 }
 
 nav ul {
     display: flex;
-    gap: 40px;
     list-style: none;
+    gap: 30px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: 0.3s;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
 }
 
 nav ul li a:hover {
     color: #ffc107;
 }
 
-/* ==========================================
-   ३. स्लोगन सेक्शन (SLOGAN IMAGE SECTION)
-   ========================================== */
+/* ==========================================================================
+   ३. स्लोगन सेक्शन (PREMIUM 3D GOLDEN TEXT)
+   ========================================================================== */
 .slogan-section {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 8%;
-    margin-top: 10px;
-    margin-bottom: -10px; /* स्लायडर आणि स्लोगनमधील मोकळी जागा मॅनेज करण्यासाठी */
-    animation: fadeIn 1.5s ease;
+    padding: 0;
+    margin-top: 20px;     /* हेडरपासून योग्य अंतर */
+    margin-bottom: 25px;  /* खालील हिरो सेक्शन आणि टेक्स्टमध्ये परफेक्ट गॅप */
+    animation: fadeInText 1.5s ease;
 }
 
-/* डेस्कटॉपवर स्लोगनचा आकार */
-.slogan-section img {
-    width: 100%;
-    max-width: 450px; 
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0px 4px 10px rgba(255, 193, 7, 0.2)); /* हलका गोल्डन ग्लो */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==========================================
-   ४. हिरो आणि इमेज स्लायडर (HERO & SLIDER)
-   ========================================== */
-.hero {
-    width: 100%;
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.three-d-text {
+    font-family: "Tiro Devanagari Marathi", serif;
+    font-size: 42px;       /* डेस्कटॉपसाठी रॉयल आणि आकर्षक साईझ */
+    font-weight: bold;
+    letter-spacing: 1px;
     text-align: center;
-    padding: 20px 8% 30px 8%;
+    
+    /* 🌟 प्रीमियम गोल्डन ग्रेडियंट इफेक्ट 🌟 */
+    background: linear-gradient(135deg, #ffe066 0%, #f5b041 50%, #c0392b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* 💎 कडक ३D शॅडो लेयर्स 💎 */
+    text-shadow: 
+        0px 1px 0px #b37d14,
+        0px 2px 0px #996a0f,
+        0px 3px 0px #80570a,
+        0px 4px 5px rgba(0, 0, 0, 0.6),
+        0px 0px 25px rgba(255, 193, 7, 0.4);
 }
 
+@keyframes fadeInText {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ==========================================================================
+   ४. हिरो सेक्शन (HERO SECTION)
+   ========================================================================== */
+.hero {
+    display: flex;
+    flex-direction: row-reverse; /* इमेज स्लायडर उजवीकडे आणि टेक्स्ट डावीकडे */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8% 40px 8%;
+    gap: 50px;
+}
+
+/* --- इमेज स्लायडर डिझाईन --- */
 .slider {
+    flex: 1;
     position: relative;
     width: 100%;
-    max-width: 500px; /* डेस्कटॉपवर थाळी खूप मोठी दिसू नये म्हणून */
-    height: 400px;
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 400px; /* डेस्कटॉप स्लायडर हाईट */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.7), 0px 0px 15px rgba(255,193,7,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* स्लाईड इमेजेस */
 .slide {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     opacity: 0;
-    visibility: hidden; /* मोबाईलवर बॅकग्राउंडला ओव्हरलॅप होऊ नये म्हणून */
-    transition: opacity 1s ease-in-out, visibility 1s;
+    transition: opacity 1s ease-in-out; /* स्मूथ स्लाईड चेंज इफेक्ट */
 }
 
-/* अ‍ॅक्टिव्ह असणारी इमेज */
 .slide.active {
     opacity: 1;
-    visibility: visible;
-    animation: floatImage 4s ease-in-out infinite;
 }
 
-/* ३D फ्लोटिंग इफेक्ट */
-@keyframes floatImage {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-12px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-/* ==========================================
-   ५. मजकूर आणि बटने (TEXT & BUTTON)
-   ========================================== */
+/* --- डाव्या बाजूचा टेक्स्ट आणि बटण --- */
 .left {
-    animation: textUp 1.5s ease;
+    flex: 1;
 }
 
 .left h1 {
-    font-size: 90px;
-    line-height: 100px;
-    font-weight: 900;
-    text-transform: uppercase;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ffffff;
 }
 
 .left p {
-    margin-top: 30px;
-    width: 100%;
-    max-width: 800px;
-    color: #d4d4d4;
-    font-size: 18px;
-    line-height: 32px;
+    font-size: 16px;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 30px;
 }
 
 .left button {
-    margin-top: 40px;
-    padding: 18px 40px;
-    border: none;
-    border-radius: 6px;
-    background: #ffc107;
-    color: black;
-    font-size: 18px;
+    padding: 13px 35px;
+    font-size: 16px;
     font-weight: bold;
+    color: #111111;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 30px;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 0px 5px 15px rgba(255, 193, 7, 0.4);
+    transition: all 0.3s ease;
 }
 
 .left button:hover {
-    transform: scale(1.05);
-    background: #ffca2c;
+    background-color: #ffe066;
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 20px rgba(255, 193, 7, 0.6);
 }
 
-@keyframes textUp {
-    from {
-        opacity: 0;
-        transform: translateY(80px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ==========================================
-   ६. टॅबलेट स्क्रीन रिस्पॉन्सिव्हनेस (TABLET - 992px)
-   ========================================== */
-@media(max-width: 992px) {
+/* ==========================================================================
+   ५. रिस्पॉन्सिव्ह डिझाईन (RESPONSIVE MOBILE STYLES)
+   ========================================================================== */
+@media (max-width: 992px) {
     header {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    nav ul {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .slider {
-        height: 350px;
-        max-width: 450px;
-    }
-
-    .left h1 {
-        font-size: 65px;
-        line-height: 75px;
-    }
-}
-
-/* ==========================================
-   ७. मोबाईल स्क्रीन रिस्पॉन्सिव्हनेस (MOBILE - 768px)
-   ========================================== */
-@media(max-width: 768px) {
-    .logo {
-        font-size: 30px;
-    }
-
-    nav ul {
-        gap: 15px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
-
-    /* मोबाईलवर स्लोगनचा आकार लहान आणि सुटसुटीत */
-    /* ==========================================
-   ३. स्लोगन सेक्शन (SLOGAN IMAGE SECTION)
-   ========================================== */
-/* 📱 मोबाईलवर स्लोगन इमेज परफेक्ट फिट करण्यासाठी बदल 📱 */
-    .slogan-section {
-        width: 100%;
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        padding: 0 20px; /* डाव्या-उजव्या बाजूने थोडी मोकळी जागा */
-        margin-top: 15px;
-        margin-bottom: 5px;
+        padding: 20px 5%;
     }
     
-    .slogan-section img {
-        width: 85%; /* मोबाईल स्क्रीनच्या रुंदीनुसार इमेज ऑटोमॅटिक स्वतःचा आकार बदलेल */
-        max-width: 300px; /* इमेज मोबाईलवर खूप जास्त मोठी होऊ नये म्हणून लिमिट */
-        height: auto; /* हाईट ऑटोमॅटिक अ‍ॅडजस्ट होईल, ज्यामुळे अक्षरे चपटी होणार नाहीत */
-        display: block;
-        object-fit: contain;
-    }
-
-    /* मोबाईलवर स्लायडर आणि इमेजेस परफेक्ट सेट */
     .hero {
-        padding-top: 10px;
+        flex-direction: column; /* मोबाईलवर स्लायडर वर आणि टेक्स्ट खाली येईल */
+        padding: 0 5% 40px 5%;
+        gap: 30px;
     }
-
+    
     .slider {
-        width: 90%;
-        max-width: 320px;
-        height: 250px; /* हाईट कंट्रोल केल्यामुळे स्क्रोलिंग सोपे होईल */
-        margin: 0 auto 20px auto;
+        height: 300px; /* टॅबलेट आणि मोठ्या मोबाईल्ससाठी हाईट */
     }
-
-    .slide {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+    
+    .left {
+        text-align: center;
     }
-
+    
     .left h1 {
-        font-size: 38px;
-        line-height: 46px;
+        font-size: 36px;
     }
+}
 
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    nav ul {
+        gap: 20px;
+    }
+    
+    /* मोबाईलवर ३D टेक्स्ट सेटिंग - एका ओळीत अचूक बसण्यासाठी */
+    .slogan-section {
+        margin-top: 15px;
+        margin-bottom: 20px;
+        padding: 0 15px;
+    }
+    
+    .three-d-text {
+        font-size: 25px; 
+        text-shadow: 
+            0px 1px 0px #b37d14,
+            0px 2px 0px #996a0f,
+            0px 3px 4px rgba(0, 0, 0, 0.6);
+    }
+    
+    .slider {
+        height: 230px; /* छोट्या मोबाईल स्क्रीनसाठी परफेक्ट स्लायडर हाईट */
+    }
+    
+    .left h1 {
+        font-size: 32px;
+    }
+    
     .left p {
-        font-size: 15px;
-        line-height: 26px;
-        padding: 0 10px;
-        margin-top: 20px;
-    }
-
-    .left button {
-        padding: 12px 28px;
-        font-size: 16px;
-        margin-top: 25px;
+        font-size: 14px;
     }
 }
