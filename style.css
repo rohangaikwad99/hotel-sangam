@@ -60,28 +60,37 @@ nav ul li a:hover {
 /* ==========================================================================
    ३. स्लोगन सेक्शन (PREMIUM 3D GOLDEN TEXT)
    ========================================================================== */
+/* ==========================================================================
+   ३. स्लोगन सेक्शन (PREMIUM 3D GOLDEN TEXT - FIXED FOR MOBILE)
+   ========================================================================== */
 .slogan-section {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
-    margin-top: 20px;     /* हेडरपासून योग्य अंतर */
-    margin-bottom: 25px;  /* खालील हिरो सेक्शन आणि टेक्स्टमध्ये परफेक्ट गॅप */
+    margin-top: 20px;     
+    margin-bottom: 25px;  
     animation: fadeInText 1.5s ease;
 }
 
 .three-d-text {
     font-family: "Tiro Devanagari Marathi", serif;
-    font-size: 42px;       /* डेस्कटॉपसाठी रॉयल आणि आकर्षक साईझ */
+    font-size: 42px;       
     font-weight: bold;
     letter-spacing: 1px;
     text-align: center;
+    color: #f5b041; /* 👈 मोबाईल ब्राऊझर फेल झाला तरी बॅकअप म्हणून हा पिवळा/सोनेरी रंग दिसेल */
     
-    /* 🌟 प्रीमियम गोल्डन ग्रेडियंट इफेक्ट 🌟 */
+    /* 🌟 प्रीमियम गोल्डन ग्रेडियंट इफेक्ट (सर्व मोबाईल ब्राऊझर्ससाठी सपोर्टेड) 🌟 */
+    background: #ffe066; /* जुन्या ब्राऊझर्ससाठी */
+    background: -webkit-linear-gradient(135deg, #ffe066 0%, #f5b041 50%, #c0392b 100%); /* मोबाईल सफारी आणि क्रोमसाठी */
     background: linear-gradient(135deg, #ffe066 0%, #f5b041 50%, #c0392b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
+    /* ⚡ टेक्स्टमध्ये रंग भरण्याची जादू (मोबाईल फिक्स) ⚡ */
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
     
     /* 💎 कडक ३D शॅडो लेयर्स 💎 */
     text-shadow: 
