@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+
+            background:#0d0d0d;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            padding:50px;
+        }
+
+        .container{
+            width:100%;
+            max-width:1400px;
+        }
+
+        .title{
+            text-align:center;
+            color:white;
+            font-size:55px;
+            margin-bottom:60px;
+            letter-spacing:3px;
+        }
+
+        .menu-box{
+
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+
+            gap:40px;
+        }
+
+        .card{
+
+            position:relative;
+
+            height:320px;
+
+            border-radius:30px;
+
+            overflow:hidden;
+
+            cursor:pointer;
+
+            transition:0.5s;
+
+            transform-style:preserve-3d;
+
+            box-shadow:
+            0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .card:hover{
+
+            transform:
+            rotateY(10deg)
+            rotateX(5deg)
+            scale(1.03);
+
+            box-shadow:
+            0 25px 50px rgba(255,193,7,0.3);
+        }
+
+        .card img{
+
+            width:100%;
+            height:100%;
+
+            object-fit:cover;
+
+            transition:0.5s;
+        }
+
+        .card:hover img{
+            transform:scale(1.1);
+        }
+
+        .overlay{
+
+            position:absolute;
+
+            top:0;
+            left:0;
+
+            width:100%;
+            height:100%;
+
+            background:
+            linear-gradient(to top,
+            rgba(0,0,0,0.8),
+            rgba(0,0,0,0.2));
+
+            display:flex;
+            justify-content:center;
+            align-items:end;
+
+            padding-bottom:40px;
+        }
+
+        .overlay h1{
+
+            color:white;
+
+            font-size:42px;
+
+            font-weight:700;
+
+            letter-spacing:3px;
+
+            text-shadow:
+            0 5px 10px rgba(0,0,0,0.5);
+        }
+
+        @media(max-width:900px){
+
+            .menu-box{
+
+                grid-template-columns:1fr;
+            }
+
+            .title{
+                font-size:40px;
+            }
+        }
+
+        @media(max-width:600px){
+
+            body{
+                padding:20px;
+            }
+
+            .card{
+                height:250px;
+            }
+
+            .overlay h1{
+                font-size:30px;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="title">
+            OUR MENU
+        </h1>
+
+        <div class="menu-box">
+
+            <!-- VEG -->
+
+            <div class="card">
+
+                <img src="images/vegthali.png">
+
+                <div class="overlay">
+                    <h1>VEG</h1>
+                </div>
+
+            </div>
+
+            <!-- NON VEG -->
+
+            <div class="card">
+
+                <img src="images/nonvegimg.png">
+
+                <div class="overlay">
+                    <h1>NON VEG</h1>
+                </div>
+
+            </div>
+
+            <!-- SEA FOOD -->
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1559847844-d721426d6edc?q=80&w=1200&auto=format&fit=crop">
+
+                <div class="overlay">
+                    <h1>SEA FOOD</h1>
+                </div>
+
+            </div>
+
+            <!-- CHINESE -->
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1200&auto=format&fit=crop">
+
+                <div class="overlay">
+                    <h1>CHINESE</h1>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

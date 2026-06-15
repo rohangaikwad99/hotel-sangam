@@ -1,0 +1,192 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image:url('images/mainimg.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    min-height:100vh;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    width:100%;
+    padding:25px 8%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:42px;
+    font-weight:bold;
+    color:#ffc107;
+    letter-spacing:2px;
+
+    font-family: "Tiro Devanagari Marathi", serif;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ffc107;
+}
+
+/* HERO SECTION */
+
+.hero{
+    width:100%;
+    min-height:90vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 8%;
+}
+
+.left{
+    width:50%;
+}
+
+.left h1{
+    font-size:95px;
+    line-height:100px;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.left p{
+    margin-top:30px;
+    width:80%;
+
+    color:#d4d4d4;
+    font-size:18px;
+    line-height:32px;
+}
+
+.left button{
+    margin-top:40px;
+
+    padding:18px 40px;
+
+    border:none;
+    border-radius:6px;
+
+    background:#ffc107;
+    color:black;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.left button:hover{
+    transform:scale(1.05);
+    background:#ffca2c;
+}
+body{
+    animation:slideUp 1.5s ease;
+}
+
+@keyframes slideUp{
+
+    from{
+        opacity:0;
+        transform:translateY(80px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+/* TABLET RESPONSIVE */
+
+@media(max-width:992px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        justify-content:center;
+        text-align:center;
+    }
+
+    .left{
+        width:100%;
+    }
+
+    .left h1{
+        font-size:70px;
+        line-height:80px;
+    }
+
+    .left p{
+        width:100%;
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+    .logo{
+        font-size:28px;
+    }
+
+    nav ul{
+        gap:15px;
+    }
+
+    nav ul li a{
+        font-size:14px;
+    }
+
+    .left h1{
+        font-size:45px;
+        line-height:55px;
+    }
+
+    .left p{
+        font-size:15px;
+        line-height:28px;
+    }
+
+    .left button{
+        padding:15px 30px;
+        font-size:16px;
+    }
+    
+
+}
