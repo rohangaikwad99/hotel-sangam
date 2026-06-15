@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veg Menu | Hotel Sangam</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #0d0d0d;
+            color: white;
+            padding: 40px 20px;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* BACK BUTTON */
+        .back-btn {
+            align-self: flex-start;
+            margin-bottom: 20px;
+            color: #4caf50; /* व्हेजसाठी हिरवा रंग */
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            transform: translateX(-5px);
+            color: #81c784;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        /* STYLISH HEADER WITH ANIMATION */
+        .title-wrapper {
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .title {
+            font-size: 50px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ffffff, #4caf50); /* व्हाईट आणि ग्रीन ग्रेडियंट */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-family: "Tiro Devanagari Marathi", serif;
+            color: #a5a5a5;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* 3D GRID LAYOUT */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            perspective: 1000px;
+            padding: 10px;
+        }
+
+        /* CREATIVE 3D CARD */
+        .dish-card {
+            position: relative;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #141414;
+            border: 1px solid rgba(76, 175, 80, 0.1); /* फिकट हिरवी बॉर्डर */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s;
+            cursor: pointer;
+        }
+
+        /* 3D HOVER EFFECT */
+        .dish-card:hover {
+            transform: translateY(-10px) rotateX(10deg) rotateY(5deg) scale(1.02);
+            box-shadow: 0 25px 50px rgba(76, 175, 80, 0.15), 0 0 30px rgba(76, 175, 80, 0.1);
+            border-color: rgba(76, 175, 80, 0.4);
+        }
+
+        /* IMAGE STYLE */
+        .dish-card img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .dish-card:hover img {
+            transform: scale(1.08);
+        }
+
+        /* CARD DETAILS & TEXT */
+        .dish-info {
+            height: 30%;
+            background: linear-gradient(to top, #0d0d0d, #141414);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            transform: translateZ(30px);
+        }
+
+        .dish-title {
+            font-family: "Tiro Devanagari Marathi", serif;
+            font-size: 26px;
+            color: #ffc107; /* हॉटेल संगमची थीम टिकवून ठेवण्यासाठी टेक्स्ट गोल्ड रंगात */
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .dish-card:hover .dish-title {
+            color: #4caf50; /* होव्हर केल्यावर टेक्स्ट हिरवा होईल */
+        }
+
+        .price {
+            font-size: 16px;
+            color: #adadad;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media(max-width: 768px) {
+            .title {
+                font-size: 36px;
+            }
+            .subtitle {
+                font-size: 16px;
+            }
+            .dish-card {
+                height: 320px;
+            }
+            .dish-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="menu.html" class="back-btn">&#8592; Back to Menu</a>
+
+    <div class="container">
+        
+        <div class="title-wrapper">
+            <h1 class="title">Our Veg Menu</h1>
+            <p class="subtitle">शुद्ध शाकाहारी, अस्सल आणि चवदार</p>
+        </div>
+
+        <div class="menu-grid">
+
+            <div class="dish-card">
+                <img src="images/vegthali.png" onerror="this.src='https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?q=80&w=600&auto=format&fit=crop'" alt="Veg Thali">
+                <div class="dish-info">
+                    <div class="dish-title">स्पेशल व्हेज थाळी</div>
+                    <div class="price">Special Veg Thali</div>
+                </div>
+            </div>
+
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=600&auto=format&fit=crop" alt="Paneer Masala">
+                <div class="dish-info">
+                    <div class="dish-title">पनीर मसाला</div>
+                    <div class="price">Kaju Paneer Masala</div>
+                </div>
+            </div>
+
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1545247181-516773cae76d?q=80&w=600&auto=format&fit=crop" alt="Dal Tadka">
+                <div class="dish-info">
+                    <div class="dish-title">काजू करी</div>
+                    <div class="price">Special Kaju Curry</div>
+                </div>
+            </div>
+
+            <div class="dish-card">
+                <img src="https://images.unsplash.com/photo-1601050690597-df056fb4ce78?q=80&w=600&auto=format&fit=crop" alt="Shev Bhaji">
+                <div class="dish-info">
+                    <div class="dish-title">खानदेशी शेवभाजी</div>
+                    <div class="price">Khandeshi Shev Bhaji</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
