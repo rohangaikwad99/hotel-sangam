@@ -245,31 +245,24 @@ nav ul li a:hover {
     /* ==========================================
    ३. स्लोगन सेक्शन (SLOGAN IMAGE SECTION)
    ========================================== */
-.slogan-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 8%;
-    margin-top: 10px;
-    margin-bottom: -10px;
-    animation: fadeIn 1.5s ease;
-}
-
-/* डेस्कटॉपवर स्लोगनचा आकार आणि बॅकग्राउंड मॅजिक */
-/* डेस्कटॉपवर स्लोगनचा आकार आणि बॅकग्राउंड पूर्णपणे काढणे */
-.slogan-section img {
-    width: 100%;
-    max-width: 450px; 
-    height: auto;
-    object-fit: contain;
+/* 📱 मोबाईलवर स्लोगन इमेज परफेक्ट फिट करण्यासाठी बदल 📱 */
+    .slogan-section {
+        width: 100%;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px; /* डाव्या-उजव्या बाजूने थोडी मोकळी जागा */
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
     
-    /* १. काळा रंग गायब करण्यासाठी */
-    mix-blend-mode: screen; 
-    
-    /* २. बॅकग्राउंडमधील फिकट काळा रंग पूर्ण गायब करण्यासाठी फिल्टर */
-    filter: contrast(2) brightness(1.1) saturate(1.2);
-}
+    .slogan-section img {
+        width: 85%; /* मोबाईल स्क्रीनच्या रुंदीनुसार इमेज ऑटोमॅटिक स्वतःचा आकार बदलेल */
+        max-width: 300px; /* इमेज मोबाईलवर खूप जास्त मोठी होऊ नये म्हणून लिमिट */
+        height: auto; /* हाईट ऑटोमॅटिक अ‍ॅडजस्ट होईल, ज्यामुळे अक्षरे चपटी होणार नाहीत */
+        display: block;
+        object-fit: contain;
+    }
 
     /* मोबाईलवर स्लायडर आणि इमेजेस परफेक्ट सेट */
     .hero {
