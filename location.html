@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Route</title>
+</head>
+<body>
+
+<h2>Loading Route...</h2>
+
+<script>
+navigator.geolocation.getCurrentPosition(
+    function(position) {
+
+        const currentLat = position.coords.latitude;
+        const currentLng = position.coords.longitude;
+
+        const destinationLat = 17.424449321881898;
+        const destinationLng = 75.14211861177228;
+
+        const mapsUrl =
+            `https://www.google.com/maps/dir/?api=1&origin=${currentLat},${currentLng}&destination=${destinationLat},${destinationLng}&travelmode=driving`;
+
+        window.location.href = mapsUrl;
+    },
+    function(error) {
+        alert("Please allow location access to view the route.");
+    }
+);
+</script>
+
+</body>
+</html>
